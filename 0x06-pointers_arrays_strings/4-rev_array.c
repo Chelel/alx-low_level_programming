@@ -1,21 +1,23 @@
 #include "main.h"
 /**
- * string_toupper - changes all lowercase letters of a string
- * to uppercase
- * @s: input string.
- * Return: the pointer to dest.
+ * reverse_array - reverses the content of an array
+ * of integers.
+ * @a: array.
+ * @n: number of elements of the array.
+ * Return: no return.
  */
 
-char *string_toupper(char *s)
+void reverse_array(int *a, int n)
 {
-	int count = 0;
+	int i, j, temp;
 
-	while (*(s + count) != '\0')
+	for (i = 0; i < n - 1; i++)
 	{
-		if ((*(s + count) >= 97) && (*(s + count) <= 122))
-			*(s + count) = *(s + count) - 32;
-		count++;
+		for (j = i + 1; j > 0; j--)
+		{
+			temp = *(a + j);
+			*(a + j) = *(a + (j - 1));
+			*(a + (j - 1)) = temp;
+		}
 	}
-
-	return (s);
 }
